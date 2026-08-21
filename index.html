@@ -6,34 +6,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Min första sida</title>
   <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .photo {
-      display: inline-block;
-      overflow: hidden;
-    }
-
-    img#myImage {
-      width: 300px;
-      height: auto;
-      transition: transform 0.3s ease;
-      display: block;
-    }
-
-    img#myImage.large {
-      transform: scale(1.8);
-    }
-
-    button#toggleSize {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding: 2rem; text-align: center; }
+    .photo { display: inline-block; overflow: hidden; }
+    img#myImage { width: 300px; height: auto; transition: transform 0.3s ease; display: block; transform-origin: center center; }
+    img#myImage.large { transform: scale(1.8); }
+    button#toggleSize { margin-top: 1rem; padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+    @media (prefers-reduced-motion: reduce) { img#myImage { transition: none; } }
   </style>
 </head>
 <body>
@@ -41,7 +19,8 @@
   <p>Välkommen hit</p>
 
   <div class="photo">
-    <img id="myImage" src="min bild.jpg" alt="Ett foto" />
+    <!-- Rename the file on disk to min-bild.jpg or change src accordingly -->
+    <img id="myImage" src="min-bild.jpg" alt="Ett foto" />
   </div>
 
   <div>
@@ -49,14 +28,31 @@
   </div>
 
   <script>
-    const btn = document.getElementById('toggleSize');
-    const img = document.getElementById('myImage');
+    // Defensive: wait for DOM and guard against missing elements, with debug logs
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('toggleSize');
+      const img = document.getElementById('myImage');
 
-    btn.addEventListener('click', () => {
-      const isLarge = img.classList.toggle('large');
-      // Update button text and accessibility state
-      btn.textContent = isLarge ? 'Återställ storlek' : 'Gör bilden större';
-      btn.setAttribute('aria-pressed', String(isLarge));
+      if (!btn) {
+        console.error('Knappen #toggleSize hittades inte i DOM.');
+        return;
+      }
+      if (!img) {
+        console.error('Bilden #myImage hittades inte i DOM.');
+        return;
+      }
+
+      console.log('Setup toggle button for image size.');
+
+      btn.addEventListener('click', () => {
+        try {
+          const isLarge = img.classList.toggle('large');
+          btn.textContent = isLarge ? 'Återställ storlek' : 'Gör bilden större';
+          btn.setAttribute('aria-pressed', String(isLarge));
+        } catch (err) {
+          console.error('Fel vid toggling:', err);
+        }
+      });
     });
   </script>
 </body>
