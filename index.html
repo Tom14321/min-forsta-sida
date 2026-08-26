@@ -1,17 +1,218 @@
-<html>
+<!DOCTYPE html>
+<html lang="sv">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min första sida - Bilsajt</title>
   <style>
-    body {
-      background-color: #f5e6d3;
+    * {
       margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Rörlig bakgrund med bilar */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      z-index: -1;
+    }
+
+    .road {
+      position: absolute;
+      width: 100%;
+      height: 150px;
+      background: repeating-linear-gradient(
+        90deg,
+        #333 0px,
+        #333 50px,
+        #f5e6d3 50px,
+        #f5e6d3 100px
+      );
+      opacity: 0.7;
+    }
+
+    .road:nth-child(1) {
+      top: 20%;
+      animation: moveRoad 10s linear infinite;
+    }
+
+    .road:nth-child(2) {
+      top: 50%;
+      animation: moveRoad 8s linear infinite;
+    }
+
+    .road:nth-child(3) {
+      top: 80%;
+      animation: moveRoad 12s linear infinite;
+    }
+
+    @keyframes moveRoad {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(100px);
+      }
+    }
+
+    /* Rörliga bilar */
+    .car {
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      background: #FF6B6B;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      animation: driveCar 8s linear infinite;
+    }
+
+    .car:nth-child(4) {
+      top: 20%;
+      left: -100px;
+      background: #FF6B6B;
+      animation: driveCar 8s linear infinite;
+    }
+
+    .car:nth-child(5) {
+      top: 50%;
+      left: -100px;
+      background: #4ECDC4;
+      animation: driveCar 10s linear infinite;
+      animation-delay: 2s;
+    }
+
+    .car:nth-child(6) {
+      top: 80%;
+      left: -100px;
+      background: #FFE66D;
+      animation: driveCar 12s linear infinite;
+      animation-delay: 4s;
+    }
+
+    @keyframes driveCar {
+      0% {
+        left: -100px;
+      }
+      100% {
+        left: 100vw;
+      }
+    }
+
+    /* Innehålls-container */
+    .container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      animation: slideIn 1s ease-out;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Knapp för interaktivitet */
+    button {
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      background-color: #FFE66D;
+      color: #333;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #FF6B6B;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    button:active {
+      transform: scale(0.95);
     }
   </style>
 </head>
 <body>
-  <h1>Min första sida</h1>
-  <p>Välkommen hit</p>
-  <img src="min bild.jpg" width="450">
+  <!-- Rörlig bakgrund -->
+  <div class="background">
+    <div class="road"></div>
+    <div class="road"></div>
+    <div class="road"></div>
+    <div class="car">🚗</div>
+    <div class="car">🏎️</div>
+    <div class="car">🚙</div>
+  </div>
+
+  <!-- Huvudinnehål -->
+  <div class="container">
+    <h1>🚗 Välkommen till Min Bilsajt! 🚗</h1>
+    <p>Din plats för allt om bilar och motorkärl!</p>
+    
+    <img src="https://via.placeholder.com/300?text=Cool+Bil" alt="En cool bil">
+    
+    <button onclick="alert('Vroom vroom! 🏎️ Du klickade på knappen!')">Klicka här!</button>
+  </div>
 </body>
 </html>
