@@ -1,17 +1,38 @@
-<html>
+<!DOCTYPE html>
+<html lang="sv">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min första sida</title>
   <style>
     body {
       background-color: #f5e6d3;
       margin: 0;
       padding: 20px;
       font-family: Arial, sans-serif;
+      text-align: center; /* Centrerar allt innehåll */
+      color: #333333; /* Lite mjukare svart färg på texten */
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+
+    img {
+      max-width: 100%; /* Gör att bilden krymper på små skärmar */
+      width: 450px;    /* Maxbredden är fortfarande 450px */
+      height: auto;
+      border-radius: 10px; /* Ger bilden snyggt rundade hörn */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Lägger till en mjuk skugga */
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
   <h1>Min första sida</h1>
-  <p>Välkommen hit</p>
-  <img src="min bild.jpg" width="450">
+  <p>Välkommen hit!</p>
+  <!-- Kom ihåg att döpa om din bildfil till min-bild.jpg på datorn också -->
+  <img src="min-bild.jpg" alt="En cool svart sportbil">
 </body>
 </html>
