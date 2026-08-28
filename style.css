@@ -22,7 +22,7 @@ body, html {
 }
 
 .lambo {
-    background-image: url('Lambo.jpg.jpg');
+    background-image: url('Lambo.jpg.jpg'); /* <-- Här är ditt nya filnamn! */
 }
 
 /* Stilen för textrutan */
