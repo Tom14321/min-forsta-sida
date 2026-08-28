@@ -40,6 +40,68 @@ body, html {
 .left {
     margin-right: auto;
 }
+/* --- STIL FÖR PILEN PÅ FRAMSIDAN --- */
+.arrow-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1CAAD9; /* En snygg blå färg */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Mjuk färgövergång när man hovrar */
+}
+
+.arrow-button:hover {
+    background-color: #1588ae;
+}
+
+/* --- STIL FÖR 3D-SIDAN --- */
+.page-3d {
+    background-color: #111; /* Mörk bakgrund som passar 3D-modellen */
+    color: #eee;
+    padding: 40px;
+    height: auto; /* Återställer höjden från parallax-effekten */
+}
+
+.back-button {
+    color: #1CAAD9;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Flexbox för att lägga 3D och text sida vid sida */
+.content-3d {
+    display: flex;
+    flex-wrap: wrap; /* Gör att de hamnar under varandra på små skärmar (mobiler) */
+    gap: 40px;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.model-container {
+    flex: 1.5; /* Ger 3D-modellen lite mer utrymme än texten */
+    min-width: 300px;
+}
+
+.info-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.info-container ul {
+    line-height: 1.6;
+    padding-left: 20px;
+}
+
+.info-container li {
+    margin-bottom: 15px;
+}
 
 /* Placerar Lambo-texten till höger för att det ska se mer levande ut */
 .right {
