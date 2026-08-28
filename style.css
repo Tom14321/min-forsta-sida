@@ -1,0 +1,47 @@
+/* Nollställer marginaler för att fylla hela skärmen */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Koden som skapar själva skroll-effekten (Parallax) */
+.parallax {
+    height: 100vh; /* Gör så att sektionen tar upp 100% av din skärms höjd */
+    background-attachment: fixed; /* Detta fryser bilden när du skrollar! */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ser till att bilden täcker hela ytan snyggt */
+    display: flex; /* Hjälper oss att placera texten */
+    align-items: center; /* Centrerar textrutan vertikalt */
+}
+
+/* Laddar in dina bilder */
+.rs8 {
+    background-image: url('RS8.jpg');
+}
+
+.lambo {
+    background-image: url('Lambo.jpg.jpg');
+}
+
+/* Stilen för textrutan */
+.text-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Svart färg, men 70% genomskinlig! */
+    color: white; /* Vit text */
+    padding: 40px;
+    border-radius: 15px; /* Rundade kanter på rutan */
+    max-width: 450px; /* Gör så att texten inte blir för bred */
+    margin: 0 10%; /* Håller textrutan lite borta från kanterna på skärmen */
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5); /* Lägger till en liten skugga bakom rutan för 3D-effekt */
+}
+
+/* Placerar Audi-texten till vänster */
+.left {
+    margin-right: auto;
+}
+
+/* Placerar Lambo-texten till höger för att det ska se mer levande ut */
+.right {
+    margin-left: auto;
+}
